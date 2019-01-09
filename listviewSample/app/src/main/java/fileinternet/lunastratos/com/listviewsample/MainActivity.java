@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listview);
 
 
-        listviewAdapter adapter = new listviewAdapter();
+        final listviewAdapter adapter = new listviewAdapter();
         adapter.addItem(new itemVo("test", "test", "test", R.drawable.ic_launcher_background));
         adapter.addItem(new itemVo("test", "test", "test", R.drawable.ic_launcher_background));
         adapter.addItem(new itemVo("test", "test", "test", R.drawable.ic_launcher_background));
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), position +"", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "position " + position +" / " + adapter.getItem(position).toString(), Toast.LENGTH_LONG).show();
             }
         });
     }

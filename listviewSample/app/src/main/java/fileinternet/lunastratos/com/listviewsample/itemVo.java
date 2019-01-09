@@ -48,4 +48,14 @@ public class itemVo {
     public void setImage() {
         this.image = image;
     }
+
+    @Override
+    public String toString() {
+        return "itemVo{" +
+                "name='" + name + '\'' +
+                ", tel='" + tel + '\'' +
+                ", date='" + date + '\'' +
+                ", image=" + image +
+                '}';
+    }
 }
