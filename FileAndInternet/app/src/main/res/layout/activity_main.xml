@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/insert_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/write"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="쓰기" />
+
+    <Button
+        android:id="@+id/read"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="읽기" />
+
+    <Button
+        android:id="@+id/exwrite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ex쓰기" />
+
+    <Button
+        android:id="@+id/exread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ex읽기" />
+
+    <Button
+        android:id="@+id/eximagewrite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ex 이미지 저장" />
+
+    <Button
+        android:id="@+id/eximageread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ex 이미지 읽기" />
+
+    <Button
+        android:id="@+id/asyncBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AsyncTask 방식"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="92dp" />
+
+    <Button
+        android:id="@+id/handlerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="handler 방식" />
+
+    <Button
+        android:id="@+id/imageBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AsyncTask image"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="92dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/imageViewRead"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>
