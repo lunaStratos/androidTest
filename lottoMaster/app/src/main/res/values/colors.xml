@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#e6e6e6</color>
+    <!--맨 위 상단바의색상-->
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#a71717</color>
+    <color name="colorText">#000000</color>
+</resources>
