@@ -30,6 +30,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent closeIntent = new Intent();
                 closeIntent.putExtra("call", "camellia");
+
                 setResult(RESULT_OK, closeIntent);
                 finish();
 
