@@ -1,6 +1,7 @@
 package lottomaster.lunastratos.com.lottomaster;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.HashMap;
 
 import lottomaster.lunastratos.com.lottomaster.adapter.ContentsPagerAdapter;
 
@@ -31,12 +34,15 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         mTabLayout = findViewById(R.id.layout_tab);
 
+        Intent intent = getIntent();
+        HashMap map = (HashMap) intent.getExtras().get("HashMap");
+
         menuTextSetup();
 
         //ViewPager 연결
         mViewPager = (ViewPager) findViewById(R.id.pager_content);
         mContentPagerAdapter = new ContentsPagerAdapter(
-                getSupportFragmentManager(), mTabLayout.getTabCount());
+                getSupportFragmentManager(), mTabLayout.getTabCount(), map);
 
         mViewPager.setAdapter(mContentPagerAdapter);
         mViewPager.addOnPageChangeListener(
@@ -56,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
 
 
 

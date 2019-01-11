@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 import android.widget.Button;
 
+import java.util.HashMap;
+
 import lottomaster.lunastratos.com.lottomaster.LottoInfoAsyncTask;
 import lottomaster.lunastratos.com.lottomaster.R;
 import lottomaster.lunastratos.com.lottomaster.fragment.BeforeFragment;
@@ -16,10 +18,12 @@ import lottomaster.lunastratos.com.lottomaster.fragment.RandomFragment;
 public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
 
     private int mPageCount;
+    HashMap map;
 
-    public ContentsPagerAdapter(FragmentManager fm, int pageCount) {
+    public ContentsPagerAdapter(FragmentManager fm, int pageCount, HashMap map) {
         super(fm);
         this.mPageCount = pageCount;
+        this.map = map;
 
     }
 
@@ -31,7 +35,7 @@ public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
 
             case 0:
 
-                HomeFragment homeFragment = new HomeFragment();
+                HomeFragment homeFragment = new HomeFragment(map);
 
                 return homeFragment;
 

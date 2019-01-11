@@ -11,6 +11,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+
+
+    </style>
+
+    <!-- 아래 스타일을 추가해 준다 -->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
     </style>
 
 </resources>
