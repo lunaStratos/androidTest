@@ -4,12 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
-import android.widget.Button;
 
 import java.util.HashMap;
 
-import lottomaster.lunastratos.com.lottomaster.LottoInfoAsyncTask;
-import lottomaster.lunastratos.com.lottomaster.R;
 import lottomaster.lunastratos.com.lottomaster.fragment.BeforeFragment;
 import lottomaster.lunastratos.com.lottomaster.fragment.HomeFragment;
 import lottomaster.lunastratos.com.lottomaster.fragment.InfoFragment;
@@ -17,7 +14,7 @@ import lottomaster.lunastratos.com.lottomaster.fragment.RandomFragment;
 
 public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
 
-    private int mPageCount;
+    private int mPageCount; // fragment 번호 저장
     HashMap map;
 
     public ContentsPagerAdapter(FragmentManager fm, int pageCount, HashMap map) {
@@ -58,8 +55,6 @@ public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
                 InfoFragment infoFragment = new InfoFragment();
 
                 return infoFragment;
-
-
 
             default:
 

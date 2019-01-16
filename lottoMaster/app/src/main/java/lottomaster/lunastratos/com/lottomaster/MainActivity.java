@@ -17,36 +17,33 @@ import lottomaster.lunastratos.com.lottomaster.adapter.ContentsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     TabLayout mTabLayout;
     private Context mContext;
     private ViewPager mViewPager;
     private ContentsPagerAdapter mContentPagerAdapter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mContext = getApplicationContext();
-
-        mTextMessage = (TextView) findViewById(R.id.message);
-        mTabLayout = findViewById(R.id.layout_tab);
 
         Intent intent = getIntent();
         HashMap map = (HashMap) intent.getExtras().get("HashMap");
 
-        menuTextSetup();
+        mContext = getApplicationContext();
 
-        //ViewPager 연결
+        mTabLayout = findViewById(R.id.layout_tab); // TabLayout
         mViewPager = (ViewPager) findViewById(R.id.pager_content);
-        mContentPagerAdapter = new ContentsPagerAdapter(
-                getSupportFragmentManager(), mTabLayout.getTabCount(), map);
+
+        menuTextSetup(); //mTabLayout addTab
+
+
+        mContentPagerAdapter = new ContentsPagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount(), map);
 
         mViewPager.setAdapter(mContentPagerAdapter);
         mViewPager.addOnPageChangeListener(
                 new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -63,25 +60,18 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
-
     }
 
 
     //메뉴바 텍스트 만들기
     private void menuTextSetup() {
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("홈")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("로또번호 생성")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("회차별 당첨확인")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("기타")));
+
+        mTabLayout.addTab(mTabLayout.newTab().setIcon(R.drawable.home));
+        mTabLayout.addTab(mTabLayout.newTab().setIcon(R.drawable.view));
+        mTabLayout.addTab(mTabLayout.newTab().setIcon(R.drawable.calender));
+        mTabLayout.addTab(mTabLayout.newTab().setIcon(R.drawable.info));
+
+        //mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("내로또 확인")));
     }
 
-    //
-    private View createTabView(String tabName) {
-        View tabView = LayoutInflater.from(mContext).inflate(R.layout.menu_layout, null);
-        TextView txt_name = (TextView) tabView.findViewById(R.id.txt_name);
-        txt_name.setText(tabName);
-        return tabView;
-
-    }
 }

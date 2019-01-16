@@ -1,5 +1,6 @@
 package lottomaster.lunastratos.com.lottomaster;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
@@ -150,9 +151,10 @@ public class LottoInfoAsyncTask extends AsyncTask<String, Void, HashMap> {
         try {
 
             if(mapObject.get("firstAccumamnt").equals("0")){
-                resultText.setText("이상한 회차 입력 금지");
+
+                //resultText.setText("이상한 회차 입력 금지");
             }else{
-                resultText.setText(mapObject.toString());
+                //resultText.setText(mapObject.toString());
             }
 
         } catch (Exception e) {

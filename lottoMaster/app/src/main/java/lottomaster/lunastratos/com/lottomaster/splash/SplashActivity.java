@@ -27,7 +27,6 @@ import lottomaster.lunastratos.com.lottomaster.MainActivity;
 
 public class SplashActivity extends Activity {
 
-    TextView resultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

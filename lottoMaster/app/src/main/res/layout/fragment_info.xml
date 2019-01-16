@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/backgroundColor">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,5 +20,36 @@
         android:layout_height="wrap_content"
         android:text="만든이 : LunaStratos"
         android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/infoEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이메일"
+        android:gravity="center"
+        android:autoLink="email" />
+
+    <TextView
+        android:id="@+id/infoSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="제작자 사이트 가기"
+        android:gravity="center"
+        android:autoLink="web"/>
+
+    <TextView
+        android:id="@+id/insert_infoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이 앱은 처음으로 만든 로또마스터 앱입니다. "
+        android:gravity="center"
+        android:autoLink="web"/>
+
+    <TextView
+           android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ver 1.0 "
+        android:gravity="center"
+        android:autoLink="web"/>
 
 </LinearLayout>
