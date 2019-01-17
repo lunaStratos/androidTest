@@ -9,28 +9,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
         android:background="@color/readTitleBackground"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <TextView
+            android:textSize="20dp"
             android:layout_width="38dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:text="제목" />
 
         <EditText
+            android:maxLength="15"
+            android:textSize="20dp"
             android:id="@+id/insert_title"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="2" />
+            android:layout_height="wrap_content"
+            android:text="제제목제제목제제목제제목제제목제제" />
 
     </LinearLayout>
 
     <EditText
-        android:id="@+id/insert_area"
+        android:id="@+id/insert_memo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:background="@color/readEditBackground" />
+        android:background="@color/readEditBackground"
+        android:gravity="top"/>
 
 </LinearLayout>

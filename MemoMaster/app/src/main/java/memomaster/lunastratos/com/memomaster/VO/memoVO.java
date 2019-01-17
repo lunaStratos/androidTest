@@ -3,12 +3,12 @@ package memomaster.lunastratos.com.memomaster.VO;
 public class memoVO {
 
     private String title;
-    private String date;
+    private String memo;
     private int number;
 
-    public memoVO(String title, String date, int number) {
+    public memoVO(int number, String title, String memo) {
         this.title = title;
-        this.date = date;
+        this.memo = memo;
         this.number = number;
     }
 
@@ -20,12 +20,12 @@ public class memoVO {
         this.title = title;
     }
 
-    public String getDate() {
-        return date;
+    public String getMemo() {
+        return memo;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setMemo(String memo) {
+        this.memo = memo;
     }
 
     public int getNumber() {

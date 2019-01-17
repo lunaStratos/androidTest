@@ -10,7 +10,7 @@ import memomaster.lunastratos.com.memomaster.R;
 public class ItemView extends LinearLayout {
 
     TextView item_title;
-    TextView item_date;
+    TextView item_memo;
     Context context;
 
     public ItemView(Context context) {
@@ -21,14 +21,14 @@ public class ItemView extends LinearLayout {
         inflater.inflate(R.layout.itemview, this,true);
 
         item_title = findViewById(R.id.item_title);
-        item_date = findViewById(R.id.item_date);
+        item_memo = findViewById(R.id.item_memo);
     }
 
     public void setTitle(String str) {
-        item_title.setText(str);
+        item_title.setText("제목: "+ str);
     }
 
-    public void setDate(String str) {
-        item_date.setText(str);
+    public void setMemo(String str) {
+        item_memo.setText("내용: "+str);
     }
 }

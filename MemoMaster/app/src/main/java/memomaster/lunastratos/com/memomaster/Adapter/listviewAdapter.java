@@ -33,11 +33,15 @@ public class listviewAdapter extends BaseAdapter {
         alist.add(vo);
     }
 
+    public void clear(){
+        alist.clear();
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ItemView im = new ItemView(parent.getContext());
 
-        im.setDate(alist.get(position).getDate());
+        im.setMemo(alist.get(position).getMemo());
         im.setTitle(alist.get(position).getTitle());
 
         return im;

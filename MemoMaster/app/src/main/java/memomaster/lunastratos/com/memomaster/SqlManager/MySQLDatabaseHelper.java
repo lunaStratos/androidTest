@@ -31,4 +31,5 @@ public class MySQLDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
         onCreate(db); // 다시 테이블 생성
     }
+
 }

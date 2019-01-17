@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".view.NewMemoView"/>
+        <activity android:name=".view.ReadAndWriteView"/>
     </application>
 
 
