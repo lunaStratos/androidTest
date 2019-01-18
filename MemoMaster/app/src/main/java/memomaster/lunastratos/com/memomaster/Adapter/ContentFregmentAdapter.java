@@ -2,12 +2,11 @@ package memomaster.lunastratos.com.memomaster.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 
 import memomaster.lunastratos.com.memomaster.Fragments.HomeFragment;
-import memomaster.lunastratos.com.memomaster.Fragments.WriteFragment;
+import memomaster.lunastratos.com.memomaster.Fragments.VoiceFragment;
 
 public class ContentFregmentAdapter extends FragmentStatePagerAdapter {
 
@@ -28,7 +27,7 @@ public class ContentFregmentAdapter extends FragmentStatePagerAdapter {
 
             case 1:
 
-                WriteFragment writeFragment = new WriteFragment();
+                VoiceFragment writeFragment = new VoiceFragment();
                 return writeFragment;
 
             default:

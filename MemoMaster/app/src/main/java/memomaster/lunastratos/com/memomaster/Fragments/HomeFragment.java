@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
     private static final String DATABASE_NAME = "InnerDatabase(SQLite).db";
     private static final int DATABASE_VERSION = 1;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,8 +53,6 @@ public class HomeFragment extends Fragment {
         helper = new MySQLDatabaseHelper(getContext(), DATABASE_NAME, null, DATABASE_VERSION);
         db = helper.getWritableDatabase();
 
-
-
         memoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,6 @@ public class HomeFragment extends Fragment {
 
         return v;
     }
-
 
     /**
      * resume으로 별도 분리

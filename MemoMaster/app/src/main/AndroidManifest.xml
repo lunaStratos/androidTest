@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="memomaster.lunastratos.com.memomaster">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:allowBackup="true"
@@ -20,6 +23,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".view.NewMemoView"/>
         <activity android:name=".view.ReadAndWriteView"/>
+        <activity android:name=".view.SettingView"/>
     </application>
 
 

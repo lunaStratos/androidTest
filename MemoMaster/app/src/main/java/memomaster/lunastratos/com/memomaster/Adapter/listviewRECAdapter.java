@@ -7,11 +7,13 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 
 import memomaster.lunastratos.com.memomaster.VO.memoVO;
+import memomaster.lunastratos.com.memomaster.VO.recVO;
+import memomaster.lunastratos.com.memomaster.view.ItemRECView;
 import memomaster.lunastratos.com.memomaster.view.ItemView;
 
-public class listviewAdapter extends BaseAdapter {
+public class listviewRECAdapter extends BaseAdapter {
 
-    ArrayList<memoVO> alist = new ArrayList<>();
+    ArrayList<recVO> alist = new ArrayList<>();
 
     @Override
     public int getCount() {
@@ -28,20 +30,19 @@ public class listviewAdapter extends BaseAdapter {
         return position;
     }
 
-    public void addItem(memoVO vo){
+    public void addItem(recVO vo) {
         alist.add(vo);
     }
 
-    public void clear(){
+    public void clear() {
         alist.clear();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ItemView im = new ItemView(parent.getContext());
+        ItemRECView im = new ItemRECView(parent.getContext());
 
-        im.setMemo(alist.get(position).getMemo());
-        im.setTitle(alist.get(position).getTitle());
+        im.setName(alist.get(position).getFilename());
 
         return im;
     }

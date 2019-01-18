@@ -15,10 +15,10 @@ public class ReadAndWriteView extends AppCompatActivity {
 
     EditText insert_memo;
     EditText insert_title;
+
     private SQLiteDatabase db;
     private MySQLDatabaseHelper helper;
     private static final String TABLE_NAME = "lunastratos_memomaster";
-
     private static final String DATABASE_NAME = "InnerDatabase(SQLite).db";
     private static final int DATABASE_VERSION = 1;
 
@@ -29,6 +29,7 @@ public class ReadAndWriteView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_layout);
 
+        //findViewById
         insert_memo = findViewById(R.id.insert_memo);
         insert_title = findViewById(R.id.insert_title);
 
@@ -57,7 +58,6 @@ public class ReadAndWriteView extends AppCompatActivity {
         }else{
             deleteMemo();
         }
-
 
         Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
         finish();
