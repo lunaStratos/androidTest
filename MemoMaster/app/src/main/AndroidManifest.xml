@@ -24,7 +24,20 @@
         <activity android:name=".view.NewMemoView"/>
         <activity android:name=".view.ReadAndWriteView"/>
         <activity android:name=".view.SettingView"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="memomaster.lunastratos.com.memomaster.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+
+        </provider>
     </application>
+
 
 
 </manifest>

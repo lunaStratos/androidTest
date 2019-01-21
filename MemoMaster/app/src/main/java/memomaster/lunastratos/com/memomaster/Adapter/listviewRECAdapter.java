@@ -6,10 +6,8 @@ import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
-import memomaster.lunastratos.com.memomaster.VO.memoVO;
 import memomaster.lunastratos.com.memomaster.VO.recVO;
 import memomaster.lunastratos.com.memomaster.view.ItemRECView;
-import memomaster.lunastratos.com.memomaster.view.ItemView;
 
 public class listviewRECAdapter extends BaseAdapter {
 

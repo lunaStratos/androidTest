@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_settings"
-        android:title='asd' />
+        android:title='백업/복구' />
     <!--android:icon="@drawable/ic_settings_black_24dp"-->
 
     <!-- Settings, should always be in the overflow -->
-    <item
-        android:id="@+id/action_settings2"
-        android:title="항목1"
-        app:showAsAction="never" />
+    <!--<item-->
+        <!--android:id="@+id/action_settings2"-->
+        <!--android:title="항목1"-->
+        <!--app:showAsAction="never" />-->
 
-    <item android:id="@+id/action_settings3"
-        android:title="항목2"
-        app:showAsAction="never"/>
+    <!--<item android:id="@+id/action_settings3"-->
+        <!--android:title="항목2"-->
+        <!--app:showAsAction="never"/>-->
 </menu>

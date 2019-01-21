@@ -37,8 +37,6 @@ public class NewMemoView extends AppCompatActivity {
         helper = new MySQLDatabaseHelper(this, DATABASE_NAME, null, DATABASE_VERSION);
         db = helper.getWritableDatabase();
 
-
-
         autoSave();// 자동저장
 
     }

@@ -2,33 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:orientation="vertical"
     android:layout_margin="3dp"
-    >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="8"
         android:gravity="left"
         android:orientation="vertical">
 
         <TextView
-            android:textSize="17dp"
-            android:maxLength="30"
             android:id="@+id/item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="제목" />
+            android:maxLength="30"
+            android:text="제목"
+            android:textSize="17dp" />
 
         <TextView
-            android:textSize="13dp"
-            android:maxLength="50"
             android:id="@+id/item_memo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="내용" />
+            android:maxLength="50"
+            android:text="내용"
+            android:textSize="13dp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/memoDelete_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="삭제"
+        />
 
 </LinearLayout>

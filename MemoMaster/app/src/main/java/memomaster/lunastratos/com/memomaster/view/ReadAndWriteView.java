@@ -57,9 +57,11 @@ public class ReadAndWriteView extends AppCompatActivity {
             saveMemo(title, memo);
         }else{
             deleteMemo();
+            Toast.makeText(getApplicationContext(), "삭제되었습니다", Toast.LENGTH_LONG).show();
+
         }
 
-        Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
         finish();
     }
 

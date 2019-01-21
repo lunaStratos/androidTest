@@ -26,6 +26,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -149,8 +150,6 @@ public class VoiceFragment extends Fragment {
         playStopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 stopPlaying();
             }
         });
@@ -220,7 +219,10 @@ public class VoiceFragment extends Fragment {
                 case 1:
                     pos = msg.arg1;
                     seekBar.setProgress(pos);
-                    voiceState.setText("재생된 시간 " + pos);
+                    double sec = pos/1000 ;
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    String x = String.format("%.0f",sec );
+                    voiceState.setText("재생된 시간 " + x +" 초");
 
                     break;
                 case 2:
@@ -233,25 +235,28 @@ public class VoiceFragment extends Fragment {
     //음악재생
     public void player(String fileDir) {
 
-        player = new MediaPlayer();
+
         if (isRec) {
             //녹음중이라면
             Toast.makeText(getContext(), "녹음을 끈 다음 재생을 해 주세요.", Toast.LENGTH_LONG).show();
             return;
         }
-
-        if (player.isPlaying()) {
-            //플레잉 중이라면 음악을 멈추고 종료.
-            player.stop();
-            player.release();
+        if (player == null){
+            player = new MediaPlayer();
+            if (player.isPlaying()) {
+                //플레잉 중이라면 음악을 멈추고 종료.
+                stopPlaying();
+            }
         }
 
+        player = new MediaPlayer();
         try {
             player.setDataSource(fileDir);
             player.prepare();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         player.start();
 
         seekBar.setMax(player.getDuration());
@@ -276,14 +281,22 @@ public class VoiceFragment extends Fragment {
     }
 
     public void stopPlaying() {
-        player.stop();
-        player.release();
-        player = null;
-        isPlay = false;
-        playOrStopBtn.setEnabled(false);
-        playStopBtn.setEnabled(false);
-        pos = 0;
-        seekBar.setProgress(0);
+        if(player !=null){
+            player.stop();
+            player.release();
+
+            player = null;
+            isPlay = false;
+
+            //버튼과 텍스트 초기화
+            playOrStopBtn.setEnabled(false);
+            playStopBtn.setEnabled(false);
+            voiceState.setText("");
+            //현재 재생시간 초기화
+            pos = 0;
+            seekBar.setProgress(0);
+
+        }
 
     }
 
@@ -291,7 +304,7 @@ public class VoiceFragment extends Fragment {
     public void checkFunction() {
         int permissioninfo = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.RECORD_AUDIO);
         if (permissioninfo == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(getContext(), "REC 권한 있음", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getContext(), "REC 권한 있음", Toast.LENGTH_SHORT).show();
         } else {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.RECORD_AUDIO)) {
                 ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.RECORD_AUDIO}, 100);
@@ -317,13 +330,15 @@ public class VoiceFragment extends Fragment {
         @Override
         public void run() {
             super.run();
-
-            while (player.isPlaying()) {
-                Message msg = handler.obtainMessage();
-                msg.what = 1;
-                msg.arg1 = player.getCurrentPosition();
-                handler.sendMessage(msg);
+            if(player !=null && isPlay && player.isPlaying()){
+                while (player.isPlaying()) {
+                    Message msg = handler.obtainMessage();
+                    msg.what = 1;
+                    msg.arg1 = player.getCurrentPosition();
+                    handler.sendMessage(msg);
+                }
             }
+
         }
     }
 }

@@ -19,14 +19,15 @@ public class ContentFregmentAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int tabPosition) {
-        Log.i("getItem", "" + tabPosition);
+
         switch (tabPosition){
             case 0:
+                //메인 메모 리스트
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;
 
             case 1:
-
+                //녹음리스트
                 VoiceFragment writeFragment = new VoiceFragment();
                 return writeFragment;
 

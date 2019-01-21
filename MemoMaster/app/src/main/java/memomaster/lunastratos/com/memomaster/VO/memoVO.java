@@ -1,5 +1,7 @@
 package memomaster.lunastratos.com.memomaster.VO;
 
+import android.view.View;
+
 public class memoVO {
 
     private String title;

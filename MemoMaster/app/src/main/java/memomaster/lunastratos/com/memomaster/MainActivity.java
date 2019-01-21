@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         toolbar = findViewById(R.id.my_toolbar);
-
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tabLayout);
+
+        //탭 아이콘/텍스트 등록
         setTabIcon();
 
         contentFregmentAdapter = new ContentFregmentAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-
 
         viewPager.setAdapter(contentFregmentAdapter);
         viewPager.addOnPageChangeListener(
@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Toast.makeText(getApplicationContext(), tab.getPosition() + "입니다", Toast.LENGTH_LONG).show();
                 viewPager.setCurrentItem(tab.getPosition());
             }
 
@@ -65,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //타이틀에 툴바 + 텍스트 제거
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
@@ -83,19 +83,16 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Toast.makeText(getApplicationContext(), "1", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), SettingView.class);
                 intent.putExtra("seeting", "setting");
                 startActivity(intent);
                 break;
-
-            case R.id.action_settings2:
-                Toast.makeText(getApplicationContext(), "2", Toast.LENGTH_LONG).show();
-                break;
-
-            case R.id.action_settings3:
-                Toast.makeText(getApplicationContext(), "3", Toast.LENGTH_LONG).show();
-                break;
+//
+//            case R.id.action_settings2:
+//                break;
+//
+//            case R.id.action_settings3:
+//                break;
 
         }
 
