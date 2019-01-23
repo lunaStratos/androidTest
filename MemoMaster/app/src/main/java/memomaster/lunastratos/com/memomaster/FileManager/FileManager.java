@@ -19,6 +19,9 @@ import java.io.IOException;
  * 백업망 구축
  */
 
+//implementation('com.googlecode.json-simple:json-simple:1.1.1') {
+//        exclude group: 'junit', module: 'junit'
+//    }
 
 public class FileManager {
 
@@ -35,12 +38,16 @@ public class FileManager {
 
         String sql = "SELECT * FROM " + TABLE_NAME + "";
         Cursor c = db.rawQuery(sql, null);
+        if(c.getCount() == 0){
+            return false;
+        }
         JSONArray arrayBackup = new JSONArray();
-        JSONObject jsonBackup = new JSONObject();
-        JSONObject jsonBackupResult = new JSONObject();
-        while (c.moveToNext()) {
-            jsonBackup.clear();
 
+
+        JSONObject jsonBackupResult = new JSONObject();
+        //SQL에서 읽기
+        while (c.moveToNext()) {
+            JSONObject jsonBackup = new JSONObject();
             int number = c.getInt(0);
             String title = c.getString(1);
             String memo = c.getString(2);
@@ -56,6 +63,7 @@ public class FileManager {
             }
 
         }
+
         jsonBackupResult.put("any", arrayBackup);
         Log.i("number", "" + arrayBackup);
 
@@ -87,6 +95,7 @@ public class FileManager {
         JSONParser parser = new JSONParser();
         JSONObject items = null;
         JSONArray arr = new JSONArray();
+
         try {
             items = (JSONObject) parser.parse(fr);
             arr = (JSONArray) items.get("any");
@@ -105,6 +114,10 @@ public class FileManager {
         db.execSQL(sql);
 
         String values = "";
+        if(arr.size() == 0){
+            return false;
+        }
+
         for (int i = 0; i < arr.size(); i++) {
             JSONObject obj = new JSONObject();
             obj = (JSONObject) arr.get(i);
@@ -112,7 +125,7 @@ public class FileManager {
             String title = (String) obj.get("title");
             String memo = (String) obj.get("memo");
             values += "(" + number + ", '" + title + "', '" + memo + "')";
-            if (i != items.size() - 1) {
+            if (i != (arr.size() - 1)) {
                 values += ",";
             }
         }
@@ -123,13 +136,13 @@ public class FileManager {
         return true;
     }
 
-
+    //이메일 백업위치 반환
     public String emailBackup() {
         String dir = fileDir() + filename;
         return dir;
     }
 
-
+    //파일위치 : Download
     public String fileDir() {
         String dir = "";
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {

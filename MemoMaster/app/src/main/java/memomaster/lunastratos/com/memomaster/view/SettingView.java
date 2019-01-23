@@ -70,7 +70,7 @@ public class SettingView extends AppCompatActivity implements View.OnClickListen
                 if(backupResult){
                     Toast.makeText(getApplicationContext(), "백업이 완료되었습니다.", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "백업이 실패하였습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "백업할 데이터가 없습니다.", Toast.LENGTH_LONG).show();
                 }
 
                 break;

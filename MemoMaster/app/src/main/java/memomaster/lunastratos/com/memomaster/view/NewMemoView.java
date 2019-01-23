@@ -37,36 +37,47 @@ public class NewMemoView extends AppCompatActivity {
         helper = new MySQLDatabaseHelper(this, DATABASE_NAME, null, DATABASE_VERSION);
         db = helper.getWritableDatabase();
 
-        autoSave();// 자동저장
+        autoSave();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        refresh();
     }
 
     //뒤로가기 버튼 누를시
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
         SharedPreferences pref = getPreferences(MODE_PRIVATE);
         String title = pref.getString("title", "");
         String memo = pref.getString("memo", "");
 
-        if(!title.replaceAll(" ", "").equals("") && !memo.replaceAll(" ", "").equals("")){
+        if (!title.replaceAll(" ", "").equals("") && !memo.replaceAll(" ", "").equals("")) {
             newMemo(title, memo);
+            //마지막 종료
+            Toast.makeText(getApplicationContext(), "새로운 메모가 저장되었습니다.", Toast.LENGTH_LONG).show();
         }
-
-        //마지막 종료
-        Toast.makeText(getApplicationContext(), "새로운 메모가 저장되었습니다.", Toast.LENGTH_LONG).show();
-        finish();
+        super.onBackPressed();
     }
 
 
-
     //임시저장
-    public void tempSave(){
+    public void tempSave() {
         SharedPreferences pref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("title", new_title.getText().toString());
         editor.putString("memo", new_memo.getText().toString());
+        editor.commit();
+    }
+
+    //임시저장
+    public void refresh() {
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("title", "");
+        editor.putString("memo", "");
         editor.commit();
     }
 
@@ -88,12 +99,12 @@ public class NewMemoView extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                tempSave();
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                tempSave();
+
             }
 
         });

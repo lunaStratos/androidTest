@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -186,8 +188,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     File fw = new File(fileDir() + imagefilenameread);
 
                     FileInputStream fis  = new FileInputStream(fw);
-                    Bitmap bmr = BitmapFactory.decodeStream(fis);
-                    imageViewRead.setImageBitmap(bmr);
+
+//                    Bitmap bmr = BitmapFactory.decodeStream(fis);
+//                    imageViewRead.setImageBitmap(bmr);
+
+                    BufferedInputStream bif = new BufferedInputStream(fis, 3000);
+                    Bitmap bmr2 = BitmapFactory.decodeStream(bif);
+                    imageViewRead.setImageBitmap(bmr2);
 
                     Toast.makeText(this, "Read ok", Toast.LENGTH_SHORT).show();
                 } catch (IOException ex) {
@@ -204,7 +211,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     Bitmap bm  = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
                     FileOutputStream fos = new FileOutputStream(new File(fileDir() + imagefilenamewrite));
-                    bm.compress(Bitmap.CompressFormat.PNG, 85, fos);
+//                    bm.compress(Bitmap.CompressFormat.PNG, 85, fos);
+//
+                    BufferedOutputStream bof = new BufferedOutputStream(fos);
+                    bm.compress(Bitmap.CompressFormat.PNG, 85, bof);
                     fos.flush();
                     fos.close();
 
@@ -249,6 +259,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void checkFunction() {
         int permissioninfo = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
         if (permissioninfo == PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "SDCard 쓰기 권한 있음", Toast.LENGTH_SHORT).show();
         } else {

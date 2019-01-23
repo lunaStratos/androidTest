@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WhiteAlbum</string>
+    <string name="dev_email">Dev.LunaStratos@gmail.com</string>
+    <string name="dev_home">http://naver.com</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_notifications">notifi</string>
+    <string name="title_setting">setting</string>
+
+</resources>
